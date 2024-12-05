@@ -14,7 +14,8 @@ pipeline {
 
         stage('Apply kubectl to thew deployment files using helm ') {
             steps {
-                sh 'helm upgrade --install webserver ./webapp '
+                sh 'ls'
+                sh 'helm upgrade --install web ./webapp/'
             }
         }
 
