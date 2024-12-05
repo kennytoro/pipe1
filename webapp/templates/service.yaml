@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: error-service
+  name: error-service1
 spec:
   selector:
-    app: webapp-error
+    app: webapp-error1
   type: NodePort
   ports:
     - protocol: TCP
