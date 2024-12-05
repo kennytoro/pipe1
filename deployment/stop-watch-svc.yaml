@@ -7,7 +7,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - name: "stop-watch-svc"
+  - name: "stop-watch-svc1"
     port: 3500
     targetPort: 3500
     nodePort: 31011

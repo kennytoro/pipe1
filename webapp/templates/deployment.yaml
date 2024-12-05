@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-error
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-error
+  template:
+    metadata:
+      labels:
+        app: webapp-error
+    spec:
+      containers:
+        - name: webapp-error
+          image: kennytoro/errormsg
+          ports:
+            - containerPort: 8080

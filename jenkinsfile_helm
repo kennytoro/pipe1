@@ -1,0 +1,28 @@
+pipeline {
+    agent any 
+
+    triggers {
+        pollSCM '* * * * *'
+    }
+
+    stages {
+        stage('CHeck the helm chart') {
+            steps {
+                sh 'helm lint'
+            }
+        }
+
+        stage('Apply kubectl to thew deployment files using helm ') {
+            steps {
+                sh 'helm upgrade --install webserver ./webapp '
+            }
+        }
+
+        stage('Check the install helm chart') {
+            steps {
+                sh ' helm ls'
+            }
+        }
+
+    }
+}
