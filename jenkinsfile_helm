@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('CHeck the helm chart') {
             steps {
-                sh 'helm lint'
+                sh 'helm lint ./webapp'
             }
         }
 
