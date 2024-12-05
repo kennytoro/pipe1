@@ -1,0 +1,22 @@
+pipeline {
+    agent any 
+
+    triggers {
+        pollSCM '* * * * *'
+    }
+
+    stages {
+        stage('CHeck the deployment') {
+            steps {
+                sh 'kubectl get pods,deploy,svc'
+            }
+        }
+
+        stage('Apply kubectl to thew deployment files') {
+            steps {
+                sh 'kubectl apply -f ./deployment/'
+            }
+        }
+
+    }
+}
